@@ -42,4 +42,5 @@ Thumbs.db
 /node_modules/
 /build/
 /dev/js/com/lib/
+/.tmp/
 sftp-config.json
