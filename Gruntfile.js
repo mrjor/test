@@ -7,13 +7,13 @@ module.exports = function(grunt) {
     wiredep: {
       target: {
         src: [
-          'dev/index.html'
+          'develop/index.html'
         ]
       }
     },
 
     useminPrepare :{
-      html:'dev/index.html',
+      html:'develop/index.html',
       options : {
         dest : 'build'
       }
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
     copy : {
       build : {
        expand: true,
-       cwd : 'dev/',
+       cwd : 'develop/',
        src: ['**/*.html'],
        dest: 'build'
       }
@@ -35,6 +35,9 @@ module.exports = function(grunt) {
     clean : {
       build : {
         src : 'build'
+      },
+      tmp : {
+        src : '.tmp'
       }
     },
 
@@ -44,7 +47,7 @@ module.exports = function(grunt) {
             hostname : 'localhost',
             open: true,
             port: 9001,
-            base: 'dev'
+            base: 'develop'
           }
       },
       live: {
@@ -63,16 +66,16 @@ module.exports = function(grunt) {
       },
       
       other: {
-        files: ['dev/*.html','dev/partials/*.html','Gruntfile.js']
+        files: ['develop/*.html','develop/partials/*.html','Gruntfile.js']
       },
 
       js : {
-        files: ['dev/js/**/*.js'],
+        files: ['develop/js/**/*.js'],
         //tasks : ['clean','jshint', 'uglify']
       },
       
       scss: {
-        files: ['dev/css/*.css'],
+        files: ['develop/css/*.css'],
         //tasks: ['clean','sass','csslint'],
       },
     }
@@ -115,7 +118,8 @@ module.exports = function(grunt) {
     'concat',
     'cssmin',
     'uglify',
-    'usemin'
+    'usemin',
+    'clean:tmp'
   ]);
 
   grunt.registerTask('serve', ['connect:dev','watch']);
