@@ -44,3 +44,4 @@ Thumbs.db
 /develop/js/vendor/
 /.tmp/
 sftp-config.json
+/.sass-cache/
